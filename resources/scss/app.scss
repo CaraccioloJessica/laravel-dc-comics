@@ -1,1 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
+
+a,
+ul,
+li {
+  list-style: none;
+  text-decoration: none;
+}

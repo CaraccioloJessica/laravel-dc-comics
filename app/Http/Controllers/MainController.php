@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Person;
+
 class MainController extends Controller
 {
+
   public function home()
   {
 
-    return view('home');
+    $people = Person::all();
+
+    return view('home', compact('people'));
   }
 }
