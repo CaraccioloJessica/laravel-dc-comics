@@ -13,7 +13,7 @@ class MainController extends Controller
   public function home()
   {
 
-    $people = Person::all();
+    $people = Person::orderBy('created_at', 'DESC')->get();
 
     return view('home', compact('people'));
   }
@@ -23,6 +23,31 @@ class MainController extends Controller
   {
 
     $person->delete();
+
+    return redirect()->route('home');
+  }
+
+  // create
+  public function personCreate()
+  {
+
+    return view('personCreate');
+  }
+
+  // store
+  public function personStore(Request $request)
+  {
+
+    $data = $request->all();
+
+    $person = new Person();
+
+    $person->firstName = $data['firstName'];
+    $person->lastName = $data['lastName'];
+    $person->dateOfBirth = $data['dateOfBirth'];
+    $person->height = $data['height'];
+
+    $person->save();
 
     return redirect()->route('home');
   }

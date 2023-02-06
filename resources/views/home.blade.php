@@ -4,6 +4,7 @@
 <main>
   <div class="container">
     <h1>People</h1>
+    <a href="{{ route('person.create') }}">CREATE NEW PERSON</a>
     <ul class="p-0 m-0">
       @foreach ($people as $person)
       <li class="py-2">
